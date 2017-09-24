@@ -4,6 +4,8 @@ package com.eje_c.playerservice;
 import android.net.Uri;
 import android.view.Surface;
 
+import com.google.android.exoplayer2.ExoPlayer;
+
 /**
  * Abstract interface for internal MediaPlayer or ExoPlayer.
  */
@@ -120,4 +122,11 @@ public interface Player {
      * @param listener Called when a frame is rendered for the first time since setting the surface, and when a frame is rendered for the first time since a video track was selected.
      */
     void setOnRenderStartListener(OnRenderStartListener listener);
+    
+    /**
+     * Register a callback to be invoked when change player state
+     *
+     * @param listener the callback that will be run.
+     */
+    void addListener(EventListener listener);
 }

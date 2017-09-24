@@ -14,6 +14,7 @@ class MediaPlayerImpl implements Player, MediaPlayer.OnPreparedListener, MediaPl
     private boolean prepared;
     private OnRenderStartListener onVideoRenderingStartListener;
     private BufferingListener bufferingListener;
+    private EventListener eventListener;
 
     MediaPlayerImpl(Context context) {
         this.mediaPlayer = new MediaPlayer();
@@ -188,5 +189,10 @@ class MediaPlayerImpl implements Player, MediaPlayer.OnPreparedListener, MediaPl
             this.what = what;
             this.extra = extra;
         }
+    }
+
+    @Override
+    public void addListener(EventListener listener) {
+        eventListener = listener;
     }
 }
